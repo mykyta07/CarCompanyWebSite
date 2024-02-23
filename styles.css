@@ -31,6 +31,10 @@ nav ul li a {
   text-decoration: none;
 }
 
+.menu-toggle {
+  display: none;
+}
+
 .container {
   margin: 20px auto;
   text-align: center;
@@ -185,7 +189,7 @@ select {
   box-sizing: border-box;
 }
 input[type="submit"] {
-  background-color: #4caf50;
+  background-color: #093c00;
   color: white;
   border: none;
   cursor: pointer;
@@ -195,4 +199,60 @@ input[type="submit"] {
 }
 input[type="submit"]:hover {
   background-color: #45a049;
+}
+
+@media screen and (max-width: 600px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  nav ul {
+    overflow: hidden;
+    max-height: 1000px;
+    transition: max-height 0.3s ease-in;
+  }
+
+  nav ul li {
+    display: block;
+    margin-top: 2%;
+  }
+
+  .menu-toggle:checked + nav ul {
+    max-height: 240px;
+  }
+
+  table {
+    font-size: 15px;
+  }
+
+  #offer {
+    flex-direction: column;
+    margin: 10px;
+  }
+
+  #history {
+    flex-direction: column;
+  }
+
+  #contact {
+    flex-direction: column;
+  }
+
+  @keyframes engine {
+    0% {
+      left: 140px;
+    }
+    100% {
+      left: 0px;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #history {
+    flex-direction: column;
+  }
 }
