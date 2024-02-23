@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Car company</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>Car Company</li>
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="info.html">Про нас</a></li>
+        <li><a href="order.html">Замовлення</a></li>
+        <li><a href="contact.html">Контакти</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div id="offer_h2">
+        <h2>Форма замовлення</h2>
+      </div>
+      <div class="container">
+        <div>
+          <p>
+            Ця форма дозволяє Вам вказати побажання щодо майбутнього автомобіля.
+            Надіславши її, менеджери зв'яжуться з Вами якнайшвидше.
+          </p>
+        </div>
+        <form>
+          <label for="name">Ім'я та прізвище</label><br />
+          <input type="text" id="name" name="name" required /><br />
+
+          <label for="email">Електронна скринька:</label><br />
+          <input type="email" id="email" name="email" required /><br />
+
+          <label for="phone2numeric">Мобільний телефон:</label><br />
+          <input
+            type="phone2numeric"
+            id="phone2numeric"
+            name="phone2numeric"
+            required
+          /><br />
+
+          <label for="ofice">Оберіть офіс:</label><br />
+          <select id="ofice" name="ofice" required>
+            <option value="city1">Львів</option>
+            <option value="city2">Луцьк</option>
+            <option value="city3">Житомир</option></select
+          ><br />
+
+          <label for="message">Марка:</label><br />
+          <input type="text" id="mark" required /><br />
+
+          <input type="submit" value="Відправити" />
+        </form>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>

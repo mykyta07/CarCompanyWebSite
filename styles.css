@@ -1,0 +1,186 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #093c00;
+  color: #fff;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 10;
+  padding: 10;
+  text-align: left;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav ul li:first-child {
+  font-weight: bold;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.container {
+  margin: 20px auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  color: #333;
+  margin-top: 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+
+#offer_h2 {
+  text-align: center;
+}
+
+#offer {
+  margin: 50px auto;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#card {
+  margin: 0 10px;
+  border: 1px solid #ccc;
+  flex: 1;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+#card img {
+  width: 30%;
+  height: auto;
+}
+
+#card h3 {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+#frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#table {
+  display: flex;
+  margin-left: auto;
+  justify-content: center;
+  margin-right: auto;
+  align-items: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 60%;
+  height: 30%;
+  font-size: 30px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#history {
+  margin: 1%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 7%;
+  margin-right: 7%;
+  padding: 5%;
+}
+
+#history p {
+  font-size: 23px;
+}
+
+#contact {
+  margin: 1%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  justify-content: space-between;
+}
+
+#city {
+  text-align: center;
+}
+
+#contact ul {
+  list-style-type: none;
+}
+
+#car1 {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  height: 40%;
+  width: 40%;
+}
+
+#contact img {
+  height: 6%;
+  width: 6%;
+}
+
+form {
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+label {
+  margin-bottom: 5px;
+  display: block;
+}
+input,
+select {
+  width: 400px;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
