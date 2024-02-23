@@ -4,6 +4,23 @@
     <title>Car company</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="image/favicon.ico">
+    <style>
+      @keyframes start {
+        0% {
+          left: 0%;
+          top: 200px;
+        }
+        100% {
+          left: 0px;
+          top: 0px;
+        }
+      }
+      main, footer{
+        position: relative;
+        animation-name: start;
+        animation-duration: 2s;
+      }
+    </style>
   </head>
   <body>
     <nav>
