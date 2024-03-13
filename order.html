@@ -26,7 +26,7 @@
             Надіславши її, менеджери зв'яжуться з Вами якнайшвидше.
           </p>
         </div>
-        <form>
+        <form id="carform">
           <label for="name">Ім'я та прізвище</label><br />
           <input type="text" id="name" name="name" required /><br />
 
@@ -35,7 +35,7 @@
 
           <label for="phone2numeric">Мобільний телефон:</label><br />
           <input
-            type="phone2numeric"
+            type="number"
             id="phone2numeric"
             name="phone2numeric"
             required
@@ -43,16 +43,126 @@
 
           <label for="ofice">Оберіть офіс:</label><br />
           <select id="ofice" name="ofice" required>
-            <option value="city1">Львів</option>
-            <option value="city2">Луцьк</option>
-            <option value="city3">Житомир</option></select
+            <option value="Львів">Львів</option>
+            <option value="Луцьк">Луцьк</option>
+            <option value="Житомир">Житомир</option></select
           ><br />
 
-          <label for="message">Марка:</label><br />
-          <input type="text" id="mark" required /><br />
+          <label>Марка:</label>
+          <select id="brandcar" name="brandcar" required>
+            <option value="">Оберіть марку</option>
+            <option value="Mercedes">Mercedes</option>
+            <option value="Volkswagen">Volkswagen</option>
+            <option value="Audi">Audi</option>
+          </select>
+          <br />
 
-          <input type="submit" value="Відправити" />
+          <label for="model">Модель:</label>
+          <select id="model" name="model">
+            <option value="">Оберіть модель</option>
+          </select>
+          <br />
+
+          <label for="year">Рік випуску:</label>
+          <input
+            type="number"
+            id="year"
+            name="year"
+            min="2000"
+            max="2024"
+            step="1"
+            required
+          />
+
+          <label for="country">Оберіть країну походження авто:</label><br />
+          <select id="country" name="country" required>
+            <option value="США">США</option>
+            <option value="Німеччина">Німеччина</option>
+            <option value="Україна">Україна</option></select
+          ><br />
+
+          <label for="date">Зручна дата для зустрічі:</label>
+          <input type="date" id="date" name="date" min="06-03-2024" required />
+
+          <label for="feedback">Особливі побажання:</label><br />
+          <textarea id="feedback" name="feedback" rows="4" cols="50"></textarea>
+          <br />
+
+          <input id="submit" type="submit" value="Відправити" />
+
+          <script>
+            const modelsByCar = {
+              Mercedes: ["S-class", "E-class", "Sprinter"],
+              Volkswagen: ["Passat", "Tiguan", "Polo"],
+              Audi: ["Q5", "A7", "Q7"],
+            };
+
+            const brandSelect = document.getElementById("brandcar");
+            const modelSelect = document.getElementById("model");
+
+            brandSelect.addEventListener("change", function () {
+              const selected = this.value;
+              const models = modelsByCar[selected] || [];
+
+              modelSelect.innerHTML =
+                "<option value=''>Оберіть модель</option>";
+
+              models.forEach(function (model) {
+                const option = document.createElement("option");
+                option.text = model;
+                option.value = model.toLowerCase().replace(/\s/g, "_");
+                modelSelect.add(option);
+              });
+            });
+          </script>
+          <script>
+            const cars = JSON.parse(localStorage.getItem("cars")) || [];
+            const form = document.getElementById("carform");
+            form.addEventListener("submit", function (event) {
+              event.preventDefault();
+              const formData = new FormData(form);
+              const car = {};
+              for (let [key, value] of formData.entries()) {
+                car[key] = value;
+              }
+              cars.push(car);
+              localStorage.setItem("cars", JSON.stringify(cars));
+              form.reset();
+            });
+          </script>
         </form>
+        </br>
+        <select id="brandcar1" name="brandcar1" required>
+          <option value="">Оберіть марку</option>
+          <option value="Mercedes">Mercedes</option>
+          <option value="Volkswagen">Volkswagen</option>
+          <option value="Audi">Audi</option>
+        </select>
+        <button id="showResults">Показати результати</button>
+        <div id="results"></div>
+        <script>
+          document.getElementById('showResults').addEventListener('click', function() {
+            const selectedBrand = document.getElementById('brandcar1').value;
+            const cars = JSON.parse(localStorage.getItem('cars')) || [];
+            const filteredCars = cars.filter(car => car.brandcar === selectedBrand);
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '';
+            if (filteredCars.length > 0) {
+              const Header = document.createElement('h2');
+              Header.textContent = `Клієнти що замовили автомобіль марки ${selectedBrand}`;
+              resultsDiv.appendChild(Header);
+              const resultList = document.createElement('ul');
+              filteredCars.forEach(car => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `Клієнт: ${car.name}, Електронна пошта: ${car.email}, Mobile phone: ${car.phone2numeric}, Модель: ${car.model}, Офіс: ${car.ofice}, Рік випуску:${car.year} `;
+                resultList.appendChild(listItem);
+              });
+              resultsDiv.appendChild(resultList);
+            } else {
+              resultsDiv.textContent = 'Немає результатів для цієї марки машини.';
+            }
+          });
+        </script>
       </div>
     </main>
     <footer></footer>
