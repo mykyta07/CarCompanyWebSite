@@ -54,6 +54,11 @@ img {
   margin-top: 20px;
 }
 
+#faculty {
+  height: 12%;
+  width: 12%;
+}
+
 #offer_h2 {
   text-align: center;
 }
