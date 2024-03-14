@@ -53,6 +53,6 @@ document.getElementById("showResults").addEventListener("click", function () {
     });
     resultsDiv.appendChild(resultList);
   } else {
-    resultsDiv.textContent = "Немає результатів для цієї марки машини.";
+    resultsDiv.textContent = "Немає результатів для цієї марки машини";
   }
 });

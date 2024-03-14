@@ -2,26 +2,157 @@
 <html lang="en">
   <head>
     <title>Car company</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="image/favicon.ico">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
+    <style>
+      #quiz-container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      
+      #result-container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      
+      h1,
+      h2,
+      h3 {
+        text-align: left;
+      }
+      
+      #quiz-container ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      
+      #quiz-container li {
+        margin-bottom: 10px;
+      }
+      
+      input[type="radio"] {
+        float: left
+        margin-right: 10px; /* Відступи між радіокнопками */
+        padding: 10px;
+      }
+      
+      label {
+        margin-right: 10px;
+        padding: 10px;
+      }
+      
+      #submit-btn {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #093c00;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      
+      #submit-btn:hover {
+        background-color: #0056b3;
+      }
+      
+    </style>
   </head>
   <body>
     <nav>
       <ul>
         <li>Car Company</li>
-        <li><a href='index.html'>Головна</a></li>
-        <li><a href='info.html'>Про нас</a></li>
-        <li><a href='order.html'>Замовлення</a></li>
-        <li><a href='contact.html'>Контакти</a></li>
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="info.html">Про нас</a></li>
+        <li><a href="order.html">Замовлення</a></li>
+        <li><a href="contact.html">Контакти</a></li>
       </ul>
     </nav>
     <main>
-        <div id="history">  
-            <img src="image/autosalon2.jpg"></img>
-            <p>Наша компанія, починаючи з 2007 року, надає послуги по пошуку, відбору, доставці автомобіля Вашої мрії. Понад 2000 задоволених кілєнтів з 16 міст України. 300 наших фахівців працюють лише заради того щоб зробити придбання авто стало комфортним для Вас.</p>
-        </div>
+      <div id="history">  
+        <img src="image/autosalon2.jpg"></img>
+        <p>Наша компанія, починаючи з 2007 року, надає послуги по пошуку, відбору, доставці автомобіля Вашої мрії. Понад 2000 задоволених кілєнтів з 16 міст України. 300 наших фахівців працюють лише заради того щоб зробити придбання авто стало комфортним для Вас.</p>
+    </div id='test'>
+      <div id="quiz-container">
+        <h1>Тест</h1>
+        <div id="question"></div>
+        <ul id="answers"></ul>
+        <button id="submit-btn">Перевірити</button>
+      </div>
+      <div id="result-container" style="display: none">
+        <h2>Результат</h2>
+        <p id="result"></p>
+      </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          const quizContainer = document.getElementById("quiz-container");
+          const resultContainer = document.getElementById("result-container");
+          const answersElement = document.getElementById("answers");
+          const resultElement = document.getElementById("result");
+          const submitButton = document.getElementById("submit-btn");
+        
+          let score = 0;
+          let questions;
+        
+          // Load questions from JSON file
+          fetch("test.json")
+            .then(response => response.json())
+            .then(data => {
+              questions = data;
+              showQuestions();
+            })
+            .catch(error => console.error(error));
+        
+          // Display all questions
+          function showQuestions() {
+            questions.forEach((question, index) => {
+              const div = document.createElement("div");
+              const h3 = document.createElement("h3");
+              h3.textContent = `Питання ${index + 1}: ${question.question}`;
+              div.appendChild(h3);
+              const ul = document.createElement("ul");
+              question.answers.forEach(answer => {
+                const li = document.createElement("li");
+                const input = document.createElement("input");
+                input.type = "radio";
+                input.name = `answer-${index}`;
+                input.value = answer;
+                li.appendChild(input);
+                li.appendChild(document.createTextNode(answer));
+                ul.appendChild(li);
+              });
+              div.appendChild(ul);
+              answersElement.appendChild(div);
+            });
+          }
+        
+          // Check answers and display result
+          submitButton.addEventListener("click", function() {
+            score = 0; // Reset score
+            questions.forEach((question, index) => {
+              const selectedAnswer = document.querySelector(`input[name='answer-${index}']:checked`);
+              if (selectedAnswer && selectedAnswer.value === question.correct_answer) {
+                score++;
+              }
+            });
+            displayResult();
+          });
+        
+          // Display final result
+          function displayResult() {
+            quizContainer.style.display = "none";
+            resultContainer.style.display = "block";
+            resultElement.textContent = `Ви відповіли правильно на ${score} з ${questions.length} питань.`;
+          }
+        });
+      </script>
     </main>
-    <footer>
-    </footer>
+    <footer></footer>
   </body>
 </html>
