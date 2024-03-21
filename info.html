@@ -72,6 +72,7 @@
         <li><a href="info.html">Про нас</a></li>
         <li><a href="order.html">Замовлення</a></li>
         <li><a href="contact.html">Контакти</a></li>
+        <li><a href="game.html">Гра</a></li>
       </ul>
     </nav>
     <main>
@@ -99,8 +100,7 @@
         
           let score = 0;
           let questions;
-        
-          // Load questions from JSON file
+
           fetch("test.json")
             .then(response => response.json())
             .then(data => {
@@ -108,8 +108,7 @@
               showQuestions();
             })
             .catch(error => console.error(error));
-        
-          // Display all questions
+
           function showQuestions() {
             questions.forEach((question, index) => {
               const div = document.createElement("div");
@@ -131,10 +130,9 @@
               answersElement.appendChild(div);
             });
           }
-        
-          // Check answers and display result
+
           submitButton.addEventListener("click", function() {
-            score = 0; // Reset score
+            score = 0; 
             questions.forEach((question, index) => {
               const selectedAnswer = document.querySelector(`input[name='answer-${index}']:checked`);
               if (selectedAnswer && selectedAnswer.value === question.correct_answer) {
@@ -143,8 +141,7 @@
             });
             displayResult();
           });
-        
-          // Display final result
+  
           function displayResult() {
             quizContainer.style.display = "none";
             resultContainer.style.display = "block";
