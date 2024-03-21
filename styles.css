@@ -9,23 +9,19 @@ nav {
   color: #fff;
   padding: 10px 0;
 }
-
 nav ul {
   list-style-type: none;
   margin: 10;
   padding: 10;
   text-align: left;
 }
-
 nav ul li {
   display: inline-block;
   margin-right: 20px;
 }
-
 nav ul li:first-child {
   font-weight: bold;
 }
-
 nav ul li a {
   color: #fff;
   text-decoration: none;
@@ -71,21 +67,18 @@ img {
   align-items: center;
   justify-content: space-between;
 }
-
-#card {
+#offer #card {
   margin: 0 10px;
   border: 1px solid #ccc;
   flex: 1;
   border-radius: 10px;
   padding: 20px;
 }
-
-#card img {
+#offer #card img {
   width: 30%;
   height: auto;
 }
-
-#card h3 {
+#offer #card h3 {
   margin-top: 10px;
   font-size: 18px;
 }
@@ -126,7 +119,6 @@ footer {
   margin-right: 7%;
   padding: 5%;
 }
-
 #history p {
   font-size: 23px;
 }
@@ -158,7 +150,6 @@ footer {
     left: 0px;
   }
 }
-
 #car1 {
   display: flex;
   margin-left: auto;
@@ -180,12 +171,13 @@ form {
   margin: 0 auto;
   font-family: Arial, sans-serif;
 }
+
 label {
   margin-bottom: 5px;
   display: block;
 }
-input,
-select {
+
+input, select {
   width: 400px;
   padding: 8px;
   margin-bottom: 10px;
@@ -193,7 +185,8 @@ select {
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
-input[type="submit"] {
+
+input[type=submit] {
   background-color: #093c00;
   color: white;
   border: none;
@@ -202,7 +195,8 @@ input[type="submit"] {
   border-radius: 5px;
   font-size: 16px;
 }
-input[type="submit"]:hover {
+
+input[type=submit]:hover {
   background-color: #45a049;
 }
 
@@ -213,39 +207,31 @@ input[type="submit"]:hover {
     top: 10px;
     right: 10px;
   }
-
   nav ul {
     overflow: hidden;
     max-height: 1000px;
     transition: max-height 0.3s ease-in;
   }
-
   nav ul li {
     display: block;
     margin-top: 2%;
   }
-
   .menu-toggle:checked + nav ul {
     max-height: 240px;
   }
-
   table {
     font-size: 15px;
   }
-
   #offer {
     flex-direction: column;
     margin: 10px;
   }
-
   #history {
     flex-direction: column;
   }
-
   #contact {
     flex-direction: column;
   }
-
   @keyframes engine {
     0% {
       left: 140px;
@@ -255,9 +241,8 @@ input[type="submit"]:hover {
     }
   }
 }
-
 @media screen and (max-width: 1200px) {
   #history {
     flex-direction: column;
   }
-}
+}/*# sourceMappingURL=styles.css.map */

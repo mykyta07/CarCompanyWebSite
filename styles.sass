@@ -1,0 +1,217 @@
+body 
+  font-family: Arial, sans-serif
+  margin: 0
+  padding: 0
+
+nav 
+  background-color: #093c00
+  color: #fff
+  padding: 10px 0
+
+  ul 
+    list-style-type: none
+    margin: 10
+    padding: 10
+    text-align: left
+
+    li 
+      display: inline-block
+      margin-right: 20px
+
+      &:first-child 
+        font-weight: bold
+
+      a 
+        color: #fff
+        text-decoration: none
+
+.menu-toggle 
+  display: none
+
+.container 
+  margin: 20px auto
+  text-align: center
+  display: flex
+  flex-direction: column
+  align-items: center
+
+h2 
+  color: #333
+  margin-top: 20px
+
+img 
+  max-width: 100%
+  height: auto
+  margin-top: 20px
+
+#faculty 
+  height: 12%
+  width: 12%
+
+#offer_h2 
+  text-align: center
+
+#offer 
+  margin: 50px auto
+  text-align: center
+  display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: space-between
+
+  #card 
+    margin: 0 10px
+    border: 1px solid #ccc
+    flex: 1
+    border-radius: 10px
+    padding: 20px
+
+    img 
+      width: 30%
+      height: auto
+
+    h3 
+      margin-top: 10px
+      font-size: 18px
+
+#frame 
+  display: flex
+  justify-content: center
+  align-items: center
+
+#table 
+  display: flex
+  margin-left: auto
+  justify-content: center
+  margin-right: auto
+  align-items: center
+
+table 
+  border-collapse: collapse
+  width: 60%
+  height: 30%
+  font-size: 30px
+
+footer 
+  text-align: center
+  margin-top: 20px
+
+#history 
+  margin: 1%
+  text-align: center
+  display: flex
+  flex-direction: row
+  align-items: center
+  margin-left: 7%
+  margin-right: 7%
+  padding: 5%
+
+  p 
+    font-size: 23px
+
+#contact 
+  margin: 1%
+  text-align: center
+  display: flex
+  flex-direction: row
+  align-items: center
+  margin-left: 10%
+  margin-right: 10%
+  justify-content: space-between
+
+#city 
+  text-align: center
+
+#contact ul 
+  list-style-type: none
+
+@keyframes engine 
+  0% 
+    left: 400px
+  100% 
+    left: 0px
+
+#car1 
+  display: flex
+  margin-left: auto
+  margin-right: auto
+  height: 40%
+  width: 40%
+  position: relative
+  animation-name: engine
+  animation-duration: 4s
+
+#contact img 
+  height: 6%
+  width: 6%
+
+form 
+  max-width: 800px
+  margin: 0 auto
+  font-family: Arial, sans-serif
+
+label 
+  margin-bottom: 5px
+  display: block
+
+input, select 
+  width: 400px
+  padding: 8px
+  margin-bottom: 10px
+  border-radius: 5px
+  border: 1px solid #ccc
+  box-sizing: border-box
+
+input[type="submit"] 
+  background-color: #093c00
+  color: white
+  border: none
+  cursor: pointer
+  padding: 10px 20px
+  border-radius: 5px
+  font-size: 16px
+
+input[type="submit"]:hover 
+  background-color: #45a049
+
+@media screen and (max-width: 600px) 
+  .menu-toggle 
+    display: block
+    position: absolute
+    top: 10px
+    right: 10px
+
+  nav ul 
+    overflow: hidden
+    max-height: 1000px
+    transition: max-height 0.3s ease-in
+
+  nav ul li 
+    display: block
+    margin-top: 2%
+
+  .menu-toggle:checked + nav ul 
+    max-height: 240px
+
+  table 
+    font-size: 15px
+
+  #offer 
+    flex-direction: column
+    margin: 10px
+
+  #history 
+    flex-direction: column
+
+  #contact 
+    flex-direction: column
+
+  @keyframes engine 
+    0% 
+      left: 140px
+    100% 
+      left: 0px
+
+@media screen and (max-width: 1200px) 
+  #history 
+    flex-direction: column
